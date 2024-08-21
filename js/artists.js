@@ -1,9 +1,3 @@
-/**
- * artists.js
- *
- * The app's list of Artists
- */
-
 window.artists = [
   {
     artistId: "AID-001",
