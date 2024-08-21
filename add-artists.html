@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=500, initial-scale=1" />
+  <meta name="author" content="Asif Karim" />
+  <meta name="description" content="This is a music web app made for my course assignment WEB22. Made with HTML5, CSS3, and JavaScript." />
+
+  <title>WEB222 Music App</title>
+  <link rel="stylesheet" href="./css/water.css" />
+
+  <style>
+    @font-face {
+      font-family: Inter;
+      src: url(js/Font/InterTight-Regular.woff);
+    }
+    @font-face {
+      font-family: Inter-bold;
+      src: url(js/Font/InterTight-Regular.woff);
+    }
+
+    .font{
+      font-family: Inter;
+      background-image: url(js/Font/brynden-FWbHMaOwTjw-unsplash.jpg);
+      background-size: cover;
+    }
+
+    .name{
+      font-size: 50px;
+      margin: 0px;
+    }
+
+    .slogan{
+      margin: 0px;
+    }
+
+    .title {
+      font-family: Inter-bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+      
+    .center{
+      text-align: center;
+    }
+
+    .line{
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 5px;
+    }
+
+    input{
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    label{
+      margin-bottom: 10px;
+    }
+
+    .explicit{
+      margin: 10px 0px;
+    }
+
+    .home input{
+      margin-left: 250px;
+      background-color: blueviolet;
+    }
+
+    .btn{
+      display: flex;
+      align-items: center;
+    }
+  </style>
+
+
+</head>
+<body class="font">
+
+  <header class="title">
+    <div class="center">
+       <!-- Change this to your App's info -->
+    <p class="name">BeatBox <p>
+    <p class="slogan">"Unleash the Beats!"</p>
+    </div>
+  </header>
+
+
+  <hr class="line"/>
+
+
+  <h1>Request Your Favourite Artists</h1>
+  <p>Submit the form below to resuest your favourite artist if he/she is not in the artists list.</p>
+
+  <main>
+    <form action="https://httpbin.org/post" method="post" id="Add-artists">
+      <input type="text" id="name" name="name" placeholder="Enter the artist's name" required>
+
+      <input type="text" name="list" list="genre" placeholder="Select/Enter the genre" required>
+      <datalist id="genre">
+        <option value="Country"></option>
+        <option value="Classical"></option>
+        <option value="Indie"></option>
+        <option value="Pop"></option>
+        <option value="Hip hop"></option>
+        <option value="Jazz"></option>
+        <option value="Rock"></option>
+        <option value="Metal"></option>
+        <option value="EDM"></option>
+        <option value="R&B"></option>
+        <option value="If none, then write"></option>
+      </datalist>
+
+      <input type="text" name="socials" id="socials-url" placeholder="Social media URL( , separate)" required>
+
+      <div id="url-container" class="song-url">
+        <input type="text" class="song-url" name="song-url" placeholder="Enter song/video URL" required>
+      </div>
+      <button type="button" onclick="addDynamicUrlInput()">Add URL</button>
+
+      <div class="explicit">
+        <label>Is there any explicit lyrics?</label><br>
+        <input type="radio" id="explicit-yes" name="explicit" value="yes" required>
+        <label for="explicit-yes">Yes</label>
+        <input type="radio" id="explicit-no" name="explicit" value="no" required>
+        <label for="explicit-no">No</label>
+      </div>
+
+      <textarea id="description" name="description" rows="5" cols="60" placeholder="Write a short description on why you think the artist should be added." required></textarea>
+
+      <div class="btn">
+
+        <div class="submit">
+          <input type="submit" value="Submit">
+        </div>
+  
+        <div class="home">
+          <input type="submit" id="inputLink" value="Home" readonly style="cursor: pointer;" onclick="window.location.href='index.html'">
+
+        </div>
+
+      </div>
+      
+    </form>
+  </main>
+
+  <script src="./js/formHandler.js"></script>
+</body>
+
+<footer>
+  <p>Want to get daily updates on the latest releases and news of the music world?</p>
+  <h3 class="f-text">Join our newsletter</h3>
+
+  <form action="https://httpbin.org/post" method="post" id="newsletter-form">
+
+    <input type="email" id="mail" name="mail" placeholder="Enter your mail to join" required>
+    <input type="submit" value="Subscribe">
+
+  </form>
+
+</footer>
+
+</html>
